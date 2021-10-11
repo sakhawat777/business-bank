@@ -22,21 +22,21 @@
     <div id="transaction-area">
        <div class="row">
            <div class="col-md-4">
-              <div class="deposit status">
+              <div class="deposit status"> 
                 <h5>Deposit</h5>
-                <h2>$00</h2>
+                <h2>$ <span id="currentDeposit">00</span></h2>
               </div>
            </div>
            <div class="col-md-4">
               <div class="withdraw status">
                 <h5>Withdraw</h5>
-                <h2>$00</h2>
+                <h2>$ <span id="currentWithdraw">00</span></h2>
               </div>
            </div>
            <div class="col-md-4">
                <div class="balance status">
                 <h5>Balance</h5>
-                <h2>$1500</h2>
+                <h2>$ <span id="currentBalance">1500</span></h2>
                </div>
            </div>
        </div>
@@ -45,15 +45,15 @@
            <div class="col-md-6">
               <div class="login-area">
                 <h4>Deposit</h4>
-                <input type="text" class="form-control" placeholder="$ amount you want to deposit"> <br>
-                <button class="btn btn-success">Deposit</button>
+                <input id="depositAmount" type="text" class="form-control" placeholder="$ amount you want to deposit"> <br>
+                <button id="addDeposit" class="btn btn-success">Deposit</button>
              </div>
               </div>
            <div class="col-md-6">
                <div class="login-area">
                 <h4>Withdraw </h4>
-                <input type="text" class="form-control" placeholder="$ amount you want to withdraw"> <br>
-               <button class="btn btn-success"> Withdraw</button>
+                <input id="withdrawAmount" type="text" class="form-control" placeholder="$ amount you want to withdraw"> <br>
+               <button id="addWithdraw" class="btn btn-success"> Withdraw</button>
                </div>
             </div>
        </div>
@@ -69,6 +69,53 @@
          const transactionArea = document.getElementById("transaction-area");
          transactionArea.style.display= "block"
      })
+     // Deposit Button Even handler
+     const depositBtn = document.getElementById("addDeposit");
+     depositBtn.addEventListener("click",function(){
+        //  const depositAmount = document.getElementById("depositAmount").value;
+        //  const depositValue = parseFloat(depositAmount);
+        const depositValue = getInputNumber("depositAmount");
+        //  const currentDeposit = document.getElementById("currentDeposit").innerText;
+        //  const currentDepositValue = parseFloat(currentDeposit);
+        //  const totalDeposit = depositValue + currentDepositValue; 
+        //  document.getElementById("currentDeposit").innerText = totalDeposit;
+
+        // const currentBalance = document.getElementById("currentBalance").innerText;
+        // const currentBalanceValue = parseFloat(currentBalance);
+        // const totalBalance = depositValue + currentBalanceValue;
+        // document.getElementById("currentBalance").innerText = totalBalance;
+        updateSpanText("currentBalance", depositValue);
+        updateSpanText("currentDeposit", depositValue);
+        
+         document.getElementById("depositAmount").value = "";
+
+         
+     })
+     // Withdraw Button Event handler
+     const withdrawBtn = document.getElementById("addWithdraw");
+     withdrawBtn.addEventListener("click", function(){
+         const withdrawValue = getInputNumber("withdrawAmount");
+         updateSpanText("currentWithdraw",withdrawValue);
+         updateSpanText("currentBalance", -1 * withdrawValue);
+
+
+         document.getElementById("withdrawAmount").value = "";
+
+     })
+     function getInputNumber(id){
+        const amount = document.getElementById(id).value;
+         const amountValue = parseFloat(amount);
+         return amountValue;
+         
+     }
+
+     function updateSpanText(id, depositValue){ 
+        const current = document.getElementById(id).innerText;
+        const currentValue = parseFloat(current);
+        const totalAmount = depositValue + currentValue;
+        document.getElementById(id).innerText = totalAmount;
+
+     }
 
  </script>  
 </body>
