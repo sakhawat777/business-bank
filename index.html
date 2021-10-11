@@ -10,9 +10,9 @@
 </head>
 <body>
     <div id="bank-title">
-        <h1 class="text-center pb-5">Welcome to Business Bank</h1>
+        <h1 class="text-center">Welcome to Business Bank</h1>
         <div class="login-area">
-            <h4 class="pb-3">Login</h4> 
+            <h4>Login</h4> 
             <input class="form-control" type="text" placeholder="E-mail"> <br>
             <input class="form-control" type="password" name="" id="" placeholder="Password"> <br>
             <button id="login-btn" class="btn btn-success">Enter</button>
@@ -20,12 +20,48 @@
     </div>
     
     <div id="transaction-area">
-        <h1>Transaction Area</h1>
+       <div class="row">
+           <div class="col-md-4">
+              <div class="deposit status">
+                <h5>Deposit</h5>
+                <h2>$00</h2>
+              </div>
+           </div>
+           <div class="col-md-4">
+              <div class="withdraw status">
+                <h5>Withdraw</h5>
+                <h2>$00</h2>
+              </div>
+           </div>
+           <div class="col-md-4">
+               <div class="balance status">
+                <h5>Balance</h5>
+                <h2>$1500</h2>
+               </div>
+           </div>
+       </div>
+       <!-- .row>.col-md-6*2>h4+input+btn.btn-success -->
+       <div class="row">
+           <div class="col-md-6">
+              <div class="login-area">
+                <h4>Deposit</h4>
+                <input type="text" class="form-control" placeholder="$ amount you want to deposit"> <br>
+                <button class="btn btn-success">Deposit</button>
+             </div>
+              </div>
+           <div class="col-md-6">
+               <div class="login-area">
+                <h4>Withdraw </h4>
+                <input type="text" class="form-control" placeholder="$ amount you want to withdraw"> <br>
+               <button class="btn btn-success"> Withdraw</button>
+               </div>
+            </div>
+       </div>
     </div>
 
 
  <script>
-     // For Login Area
+     // For Login Button Even Handler
      const loginBtn= document.getElementById("login-btn");
      loginBtn.addEventListener("click", function(){
          const bankTitle = document.getElementById("bank-title");
