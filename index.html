@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Bank</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="bank-title">
+        <h1 class="text-center pb-5">Welcome to Business Bank</h1>
+        <div class="login-area">
+            <h4 class="pb-3">Login</h4> 
+            <input class="form-control" type="text" placeholder="E-mail"> <br>
+            <input class="form-control" type="password" name="" id="" placeholder="Password"> <br>
+            <button id="login-btn" class="btn btn-success">Enter</button>
+        </div>
+    </div>
+    
+    <div id="transaction-area">
+        <h1>Transaction Area</h1>
+    </div>
+
+
+ <script>
+     // For Login Area
+     const loginBtn= document.getElementById("login-btn");
+     loginBtn.addEventListener("click", function(){
+         const bankTitle = document.getElementById("bank-title");
+         bankTitle.style.display = "none";
+         const transactionArea = document.getElementById("transaction-area");
+         transactionArea.style.display= "block"
+     })
+
+ </script>  
+</body>
+</html>
