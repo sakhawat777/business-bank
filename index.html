@@ -84,10 +84,15 @@
         // const currentBalanceValue = parseFloat(currentBalance);
         // const totalBalance = depositValue + currentBalanceValue;
         // document.getElementById("currentBalance").innerText = totalBalance;
+        if (depositValue<0) {
+            alert("Deposit Value can not be negative.");
+        }
+        else{
         updateSpanText("currentBalance", depositValue);
         updateSpanText("currentDeposit", depositValue);
         
          document.getElementById("depositAmount").value = "";
+        }
 
          
      })
@@ -95,11 +100,14 @@
      const withdrawBtn = document.getElementById("addWithdraw");
      withdrawBtn.addEventListener("click", function(){
          const withdrawValue = getInputNumber("withdrawAmount");
+         if (withdrawValue<0) {
+            alert("Withdraw Value can not be negative.");
+        }
+        else{
          updateSpanText("currentWithdraw",withdrawValue);
          updateSpanText("currentBalance", -1 * withdrawValue);
-
-
          document.getElementById("withdrawAmount").value = "";
+        }
 
      })
      function getInputNumber(id){
